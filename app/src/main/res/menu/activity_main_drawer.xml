@@ -7,18 +7,18 @@
         <item
             android:id="@+id/nav_main"
             android:icon="@drawable/ic_sort_by_alpha_black_24dp"
-            android:title="Import" />
+            android:title="Main Dictionary" />
         <item
             android:id="@+id/nav_save"
             android:icon="@drawable/ic_save_black_24dp"
-            android:title="Gallery" />
+            android:title="Save Word" />
         <item
             android:id="@+id/nav_setting"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/ic_settings_black_24dp"
             android:title="Setting" />
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="Share with Social Media">
         <menu>
             <item
                 android:id="@+id/nav_share"
