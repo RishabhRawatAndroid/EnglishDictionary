@@ -4,49 +4,84 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#789"
+    android:background="@color/white"
     tools:context=".FragmentPack.MainFragment">
 
-    <android.support.constraint.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:background="@color/colorPrimary">
+        android:layout_height="match_parent">
 
-        <EditText
-            android:id="@+id/search_text"
-            android:layout_width="350dp"
-            android:layout_height="50dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="4dp"
-            android:layout_marginEnd="24dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="4dp"
-            android:inputType="text"
-            android:background="@drawable/edit_text_style"
-            android:fontFamily="@font/quicksand"
-            android:hint="@string/type_word"
-            android:paddingStart="15dp"
-            android:textColorHint="@color/gray"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="25dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:contentDescription="TODO"
-            android:src="@drawable/google_mic"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.975"
-            app:layout_constraintStart_toStartOf="@+id/search_text"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.509" />
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/constraint"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:background="@color/colorPrimary"
+                android:elevation="15dp">
 
-    </android.support.constraint.ConstraintLayout>
+                <EditText
+                    android:id="@+id/search_text"
+                    android:layout_width="350dp"
+                    android:layout_height="50dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/edit_text_style"
+                    android:fontFamily="@font/quicksand"
+                    android:hint="@string/type_word"
+                    android:inputType="text"
+                    android:paddingStart="15dp"
+                    android:textColorHint="@color/gray"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
+                <ImageView
+                    android:id="@+id/mic_btn"
+                    android:layout_width="30dp"
+                    android:layout_height="25dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:src="@drawable/google_mic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.975"
+                    app:layout_constraintStart_toStartOf="@+id/search_text"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.509" />
+
+            </android.support.constraint.ConstraintLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/constraint"
+                android:layout_margin="2dp">
+
+                <qdx.bezierviewpager_compile.vPage.BezierViewPager
+                    android:id="@+id/viewpager"
+                    android:background="#fff"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp">
+                </qdx.bezierviewpager_compile.vPage.BezierViewPager>
+
+                <qdx.bezierviewpager_compile.BezierRoundView
+                    android:id="@+id/round_view"
+                    android:background="#fff"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:radius="5dp"
+                    app:time_animator="5"
+                    app:color_touch="@color/cardview_dark_background"/>
+
+            </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
 </FrameLayout>
