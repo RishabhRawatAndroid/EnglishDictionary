@@ -1,5 +1,6 @@
 package com.myapp.rishabhrawat.englishdictionary;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -21,6 +22,10 @@ import android.view.MenuItem;
 import com.google.gson.Gson;
 import com.myapp.rishabhrawat.englishdictionary.Antonyms.AntonymsList;
 import com.myapp.rishabhrawat.englishdictionary.Antonyms.Synonym;
+import com.myapp.rishabhrawat.englishdictionary.DictionaryEntries.EntriesList;
+import com.myapp.rishabhrawat.englishdictionary.DictionaryEntries.GrammaticalFeature;
+import com.myapp.rishabhrawat.englishdictionary.DictionaryEntries.GrammaticalFeature___;
+import com.myapp.rishabhrawat.englishdictionary.DictionaryEntries.Pronunciation__;
 import com.myapp.rishabhrawat.englishdictionary.FragmentPack.MainFragment;
 import com.myapp.rishabhrawat.englishdictionary.FragmentPack.SaveWordFragment;
 import com.myapp.rishabhrawat.englishdictionary.Search.SearchList;
@@ -32,6 +37,7 @@ import com.myapp.rishabhrawat.englishdictionary.Synonyms.Entry;
 import com.myapp.rishabhrawat.englishdictionary.Synonyms.Sense;
 import com.myapp.rishabhrawat.englishdictionary.Synonyms.SynonymsList;
 
+import java.io.IOException;
 import java.util.List;
 
 import retrofit2.Call;
@@ -167,32 +173,107 @@ public class MainActivity extends AppCompatActivity
 //        });
 
 
-        Call<SearchList> searchListCall=dictionaryAPI.getSearchListData("beautiful");
-        Log.d("RISHABH",searchListCall.request().url().toString());
-        searchListCall.enqueue(new Callback<SearchList>() {
+//        Call<SearchList> searchListCall=dictionaryAPI.getSearchListData("beautiful");
+//        Log.d("RISHABH",searchListCall.request().url().toString());
+//        searchListCall.enqueue(new Callback<SearchList>() {
+//            @Override
+//            public void onResponse(Call<SearchList> call, Response<SearchList> response) {
+//                if(response.isSuccessful())
+//                {
+//                    Log.d("RISHBAH","response come successfully");
+//                     List<com.myapp.rishabhrawat.englishdictionary.Search.Result> resultList=response.body().getResults();
+//                    for(int i=0;i<=resultList.size()-1;i++)
+//                    {
+//                        System.out.println("DATA "+resultList.get(i).getWord());
+//                    }
+//
+//                }
+//                else
+//                {
+//                    Log.d("RISHABH","RESPONSE HAS AN ERROR");
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<SearchList> call, Throwable t) {
+//
+//            }
+//        });
+
+
+        final Call<EntriesList> entriesListCall=dictionaryAPI.getEntryListData("Agree");
+        entriesListCall.enqueue(new Callback<EntriesList>() {
             @Override
-            public void onResponse(Call<SearchList> call, Response<SearchList> response) {
+            public void onResponse(Call<EntriesList> call, Response<EntriesList> response) {
                 if(response.isSuccessful())
                 {
-                    Log.d("RISHBAH","response come successfully");
-                     List<com.myapp.rishabhrawat.englishdictionary.Search.Result> resultList=response.body().getResults();
-                    for(int i=0;i<=resultList.size()-1;i++)
+                    List<com.myapp.rishabhrawat.englishdictionary.DictionaryEntries.Result> resultList=response.body().getResults();
+                    com.myapp.rishabhrawat.englishdictionary.DictionaryEntries.Result result=resultList.get(0);
+
+                    List<com.myapp.rishabhrawat.englishdictionary.DictionaryEntries.LexicalEntry> lexicalEntries=result.getLexicalEntries();
+                    com.myapp.rishabhrawat.englishdictionary.DictionaryEntries.LexicalEntry lexicalEntry=lexicalEntries.get(0);
+
+                    List<com.myapp.rishabhrawat.englishdictionary.DictionaryEntries.Entry> entries=lexicalEntry.getEntries();
+                    com.myapp.rishabhrawat.englishdictionary.DictionaryEntries.Entry entry=entries.get(0);
+
+                    List<GrammaticalFeature> grammaticalFeatureList=entry.getGrammaticalFeatures();
+                    for(int i=0;i<=grammaticalFeatureList.size()-1;i++)
                     {
-                        System.out.println("DATA "+resultList.get(i).getWord());
+                        System.out.println(grammaticalFeatureList.get(i).getText()+" "+grammaticalFeatureList.get(i).getType());
                     }
 
+                    List<com.myapp.rishabhrawat.englishdictionary.DictionaryEntries.Sense> senseList=entry.getSenses();
+                    for(int i=0;i<=senseList.size()-1;i++)
+                    {
+                        System.out.println(senseList.get(i).getDefinitions());
+                    }
+
+                    for(int i=0;i<=lexicalEntries.size()-1;i++)
+                    {
+                        System.out.println(lexicalEntries.get(i).getLexicalCategory());
+                    }
+                    String filepath=null;
+
+                    List<Pronunciation__> pronunciation__list=lexicalEntries.get(0).getPronunciations();
+                    for(int i=0;i<=pronunciation__list.size()-1;i++)
+                    {
+                        System.out.println(pronunciation__list.get(i).getAudioFile()+" "+pronunciation__list.get(i).getPhoneticNotation()+" "+pronunciation__list.get(i).getPhoneticSpelling());
+
+                        if(filepath==null)
+                          filepath=pronunciation__list.get(i).getAudioFile();
+
+                    }
+
+                    MediaPlayer mp = new MediaPlayer();
+                    try {
+                        mp.setDataSource(filepath);
+                        Thread.sleep(1000);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    try {
+                        mp.prepare();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    mp.start();
                 }
                 else
                 {
-                    Log.d("RISHABH","RESPONSE HAS AN ERROR");
+
+                    Log.d("RISHABH","Response has an error");
                 }
             }
 
             @Override
-            public void onFailure(Call<SearchList> call, Throwable t) {
+            public void onFailure(Call<EntriesList> call, Throwable t) {
 
             }
         });
+
+
 
 
     }
