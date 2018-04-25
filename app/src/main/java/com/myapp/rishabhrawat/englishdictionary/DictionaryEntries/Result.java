@@ -16,6 +16,9 @@ public class Result {
     @SerializedName("lexicalEntries")
     @Expose
     private List<LexicalEntry> lexicalEntries = null;
+    @SerializedName("pronunciations")
+    @Expose
+    private List<Pronunciation___> pronunciations = null;
     @SerializedName("type")
     @Expose
     private String type;
@@ -45,6 +48,14 @@ public class Result {
 
     public void setLexicalEntries(List<LexicalEntry> lexicalEntries) {
         this.lexicalEntries = lexicalEntries;
+    }
+
+    public List<Pronunciation___> getPronunciations() {
+        return pronunciations;
+    }
+
+    public void setPronunciations(List<Pronunciation___> pronunciations) {
+        this.pronunciations = pronunciations;
     }
 
     public String getType() {

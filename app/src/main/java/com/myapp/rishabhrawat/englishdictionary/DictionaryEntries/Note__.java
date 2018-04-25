@@ -1,20 +1,20 @@
 
-package com.myapp.rishabhrawat.englishdictionary.Synonyms;
+package com.myapp.rishabhrawat.englishdictionary.DictionaryEntries;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Synonym_ {
+public class Note__ {
 
     @SerializedName("id")
     @Expose
     private String id;
-    @SerializedName("language")
-    @Expose
-    private String language;
     @SerializedName("text")
     @Expose
     private String text;
+    @SerializedName("type")
+    @Expose
+    private String type;
 
     public String getId() {
         return id;
@@ -24,20 +24,20 @@ public class Synonym_ {
         this.id = id;
     }
 
-    public String getLanguage() {
-        return language;
-    }
-
-    public void setLanguage(String language) {
-        this.language = language;
-    }
-
     public String getText() {
         return text;
     }
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
 }

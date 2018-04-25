@@ -4,7 +4,7 @@ package com.myapp.rishabhrawat.englishdictionary.DictionaryEntries;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Note_ {
+public class Note_____ {
 
     @SerializedName("id")
     @Expose

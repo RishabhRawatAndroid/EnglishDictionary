@@ -5,40 +5,26 @@ import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Sense {
+public class Antonym {
 
-    @SerializedName("antonyms")
-    @Expose
-    private List<Antonym> antonyms = null;
     @SerializedName("domains")
     @Expose
     private List<String> domains = null;
-    @SerializedName("examples")
-    @Expose
-    private List<Example> examples = null;
     @SerializedName("id")
     @Expose
     private String id;
+    @SerializedName("language")
+    @Expose
+    private String language;
     @SerializedName("regions")
     @Expose
     private List<String> regions = null;
     @SerializedName("registers")
     @Expose
     private List<String> registers = null;
-    @SerializedName("subsenses")
+    @SerializedName("text")
     @Expose
-    private List<Subsense> subsenses = null;
-    @SerializedName("synonyms")
-    @Expose
-    private List<Synonym> synonyms = null;
-
-    public List<Antonym> getAntonyms() {
-        return antonyms;
-    }
-
-    public void setAntonyms(List<Antonym> antonyms) {
-        this.antonyms = antonyms;
-    }
+    private String text;
 
     public List<String> getDomains() {
         return domains;
@@ -48,20 +34,20 @@ public class Sense {
         this.domains = domains;
     }
 
-    public List<Example> getExamples() {
-        return examples;
-    }
-
-    public void setExamples(List<Example> examples) {
-        this.examples = examples;
-    }
-
     public String getId() {
         return id;
     }
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
     }
 
     public List<String> getRegions() {
@@ -80,20 +66,12 @@ public class Sense {
         this.registers = registers;
     }
 
-    public List<Subsense> getSubsenses() {
-        return subsenses;
+    public String getText() {
+        return text;
     }
 
-    public void setSubsenses(List<Subsense> subsenses) {
-        this.subsenses = subsenses;
-    }
-
-    public List<Synonym> getSynonyms() {
-        return synonyms;
-    }
-
-    public void setSynonyms(List<Synonym> synonyms) {
-        this.synonyms = synonyms;
+    public void setText(String text) {
+        this.text = text;
     }
 
 }

@@ -5,17 +5,20 @@ import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Derivative {
+public class Translation_ {
 
     @SerializedName("domains")
     @Expose
     private List<String> domains = null;
-    @SerializedName("id")
+    @SerializedName("grammaticalFeatures")
     @Expose
-    private String id;
+    private List<GrammaticalFeature__> grammaticalFeatures = null;
     @SerializedName("language")
     @Expose
     private String language;
+    @SerializedName("notes")
+    @Expose
+    private List<Note____> notes = null;
     @SerializedName("regions")
     @Expose
     private List<String> regions = null;
@@ -34,12 +37,12 @@ public class Derivative {
         this.domains = domains;
     }
 
-    public String getId() {
-        return id;
+    public List<GrammaticalFeature__> getGrammaticalFeatures() {
+        return grammaticalFeatures;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setGrammaticalFeatures(List<GrammaticalFeature__> grammaticalFeatures) {
+        this.grammaticalFeatures = grammaticalFeatures;
     }
 
     public String getLanguage() {
@@ -48,6 +51,14 @@ public class Derivative {
 
     public void setLanguage(String language) {
         this.language = language;
+    }
+
+    public List<Note____> getNotes() {
+        return notes;
+    }
+
+    public void setNotes(List<Note____> notes) {
+        this.notes = notes;
     }
 
     public List<String> getRegions() {

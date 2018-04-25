@@ -19,6 +19,9 @@ public class LexicalEntry {
     @SerializedName("text")
     @Expose
     private String text;
+    @SerializedName("variantForms")
+    @Expose
+    private List<VariantForm_> variantForms = null;
 
     public List<Entry> getEntries() {
         return entries;
@@ -50,6 +53,14 @@ public class LexicalEntry {
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    public List<VariantForm_> getVariantForms() {
+        return variantForms;
+    }
+
+    public void setVariantForms(List<VariantForm_> variantForms) {
+        this.variantForms = variantForms;
     }
 
 }

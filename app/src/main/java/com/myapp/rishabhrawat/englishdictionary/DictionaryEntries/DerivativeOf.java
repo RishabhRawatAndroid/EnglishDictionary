@@ -5,7 +5,7 @@ import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Derivative {
+public class DerivativeOf {
 
     @SerializedName("domains")
     @Expose

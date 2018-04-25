@@ -1,21 +1,24 @@
 
-package com.myapp.rishabhrawat.englishdictionary.DictionaryEntries;
+package com.myapp.rishabhrawat.englishdictionary.Synonyms;
 
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Derivative {
+public class Translation {
 
     @SerializedName("domains")
     @Expose
     private List<String> domains = null;
-    @SerializedName("id")
+    @SerializedName("grammaticalFeatures")
     @Expose
-    private String id;
+    private List<GrammaticalFeature> grammaticalFeatures = null;
     @SerializedName("language")
     @Expose
     private String language;
+    @SerializedName("notes")
+    @Expose
+    private List<Note_> notes = null;
     @SerializedName("regions")
     @Expose
     private List<String> regions = null;
@@ -34,12 +37,12 @@ public class Derivative {
         this.domains = domains;
     }
 
-    public String getId() {
-        return id;
+    public List<GrammaticalFeature> getGrammaticalFeatures() {
+        return grammaticalFeatures;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setGrammaticalFeatures(List<GrammaticalFeature> grammaticalFeatures) {
+        this.grammaticalFeatures = grammaticalFeatures;
     }
 
     public String getLanguage() {
@@ -48,6 +51,14 @@ public class Derivative {
 
     public void setLanguage(String language) {
         this.language = language;
+    }
+
+    public List<Note_> getNotes() {
+        return notes;
+    }
+
+    public void setNotes(List<Note_> notes) {
+        this.notes = notes;
     }
 
     public List<String> getRegions() {

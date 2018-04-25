@@ -1,5 +1,5 @@
 
-package com.myapp.rishabhrawat.englishdictionary.DictionaryEntries;
+package com.myapp.rishabhrawat.englishdictionary.Synonyms;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

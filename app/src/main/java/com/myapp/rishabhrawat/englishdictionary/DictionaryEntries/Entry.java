@@ -16,9 +16,18 @@ public class Entry {
     @SerializedName("homographNumber")
     @Expose
     private String homographNumber;
+    @SerializedName("notes")
+    @Expose
+    private List<Note> notes = null;
+    @SerializedName("pronunciations")
+    @Expose
+    private List<Pronunciation> pronunciations = null;
     @SerializedName("senses")
     @Expose
     private List<Sense> senses = null;
+    @SerializedName("variantForms")
+    @Expose
+    private List<VariantForm_> variantForms = null;
 
     public List<String> getEtymologies() {
         return etymologies;
@@ -44,12 +53,36 @@ public class Entry {
         this.homographNumber = homographNumber;
     }
 
+    public List<Note> getNotes() {
+        return notes;
+    }
+
+    public void setNotes(List<Note> notes) {
+        this.notes = notes;
+    }
+
+    public List<Pronunciation> getPronunciations() {
+        return pronunciations;
+    }
+
+    public void setPronunciations(List<Pronunciation> pronunciations) {
+        this.pronunciations = pronunciations;
+    }
+
     public List<Sense> getSenses() {
         return senses;
     }
 
     public void setSenses(List<Sense> senses) {
         this.senses = senses;
+    }
+
+    public List<VariantForm_> getVariantForms() {
+        return variantForms;
+    }
+
+    public void setVariantForms(List<VariantForm_> variantForms) {
+        this.variantForms = variantForms;
     }
 
 }

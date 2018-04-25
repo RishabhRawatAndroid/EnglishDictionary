@@ -1,27 +1,25 @@
 
 package com.myapp.rishabhrawat.englishdictionary.DictionaryEntries;
 
+import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Note_ {
+public class VariantForm_ {
 
-    @SerializedName("id")
+    @SerializedName("regions")
     @Expose
-    private String id;
+    private List<String> regions = null;
     @SerializedName("text")
     @Expose
     private String text;
-    @SerializedName("type")
-    @Expose
-    private String type;
 
-    public String getId() {
-        return id;
+    public List<String> getRegions() {
+        return regions;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setRegions(List<String> regions) {
+        this.regions = regions;
     }
 
     public String getText() {
@@ -30,14 +28,6 @@ public class Note_ {
 
     public void setText(String text) {
         this.text = text;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 
 }
