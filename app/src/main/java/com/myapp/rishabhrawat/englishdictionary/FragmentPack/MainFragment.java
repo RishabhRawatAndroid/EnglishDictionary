@@ -27,6 +27,9 @@ public class MainFragment extends Fragment {
 
     Context context;
     List<String> images=new ArrayList<>();
+    CardPagerAdapter adapter;
+    BezierViewPager pager;
+    BezierRoundView roundView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -35,11 +38,11 @@ public class MainFragment extends Fragment {
         View view=inflater.inflate(R.layout.fragment_main,container,false);
         context=container.getContext();
         LaodImages();
-        CardPagerAdapter adapter=new CardPagerAdapter(context);
+        adapter=new CardPagerAdapter(context);
         adapter.addImgUrlList(images);
-        BezierViewPager pager=view.findViewById(R.id.viewpager);
+        pager=view.findViewById(R.id.viewpager);
         pager.setAdapter(adapter);
-        BezierRoundView roundView=view.findViewById(R.id.round_view);
+        roundView=view.findViewById(R.id.round_view);
         roundView.attach2ViewPage(pager);
 
 
@@ -61,4 +64,10 @@ public class MainFragment extends Fragment {
         images.add("http://www.myenglishlanguage.com/wp-content/uploads/2012/03/english-grammar1.jpg");
     }
 
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+
+    }
 }

@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
@@ -49,6 +50,7 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         mainFragment = new MainFragment();
+
         saveWordFragment = new SaveWordFragment();
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
@@ -103,6 +105,8 @@ public class MainActivity extends AppCompatActivity
            if (!main_fragment_status) {
                 ft = getSupportFragmentManager().beginTransaction();
                 ft.replace(R.id.fragment_layout, mainFragment);
+                ft.detach(mainFragment);
+                ft.attach(mainFragment);
                 main_fragment_status=true;
                 save_fragment_status = false;
                 ft.commit();
