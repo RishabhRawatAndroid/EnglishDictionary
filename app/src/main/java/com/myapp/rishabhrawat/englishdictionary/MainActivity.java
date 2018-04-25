@@ -166,7 +166,35 @@ public class MainActivity extends AppCompatActivity
 //            }
 //        });
 
-        
+
+        Call<SearchList> searchListCall=dictionaryAPI.getSearchListData("beautiful");
+        Log.d("RISHABH",searchListCall.request().url().toString());
+        searchListCall.enqueue(new Callback<SearchList>() {
+            @Override
+            public void onResponse(Call<SearchList> call, Response<SearchList> response) {
+                if(response.isSuccessful())
+                {
+                    Log.d("RISHBAH","response come successfully");
+                     List<com.myapp.rishabhrawat.englishdictionary.Search.Result> resultList=response.body().getResults();
+                    for(int i=0;i<=resultList.size()-1;i++)
+                    {
+                        System.out.println("DATA "+resultList.get(i).getWord());
+                    }
+
+                }
+                else
+                {
+                    Log.d("RISHABH","RESPONSE HAS AN ERROR");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<SearchList> call, Throwable t) {
+
+            }
+        });
+
+
     }
 
     @Override

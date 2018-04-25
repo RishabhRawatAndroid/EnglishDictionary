@@ -10,6 +10,7 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface DictionaryAPI {
 
@@ -18,8 +19,8 @@ public interface DictionaryAPI {
             "app_id: ab2feedb",
             "app_key: dadab1f380083acd49fd6597fcae29cd"
     })
-    @GET("entries/en/{word_id}")
-    Call<SearchList> getSearchListData(@Path("word_id") String word_id);
+    @GET("search/en")
+    Call<SearchList> getSearchListData(@Query("q") String word_id);
 
     @Headers({
             "Accept: application/json",
