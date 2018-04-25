@@ -7,6 +7,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -17,8 +18,25 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.gson.Gson;
+import com.myapp.rishabhrawat.englishdictionary.Antonyms.Synonym;
 import com.myapp.rishabhrawat.englishdictionary.FragmentPack.MainFragment;
 import com.myapp.rishabhrawat.englishdictionary.FragmentPack.SaveWordFragment;
+import com.myapp.rishabhrawat.englishdictionary.Search.SearchList;
+import com.myapp.rishabhrawat.englishdictionary.Sentense.LexicalEntry;
+import com.myapp.rishabhrawat.englishdictionary.Sentense.Result;
+import com.myapp.rishabhrawat.englishdictionary.Sentense.Sentence;
+import com.myapp.rishabhrawat.englishdictionary.Sentense.SentenseList;
+import com.myapp.rishabhrawat.englishdictionary.Synonyms.Entry;
+import com.myapp.rishabhrawat.englishdictionary.Synonyms.Sense;
+import com.myapp.rishabhrawat.englishdictionary.Synonyms.SynonymsList;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -59,6 +77,93 @@ public class MainActivity extends AppCompatActivity
         main_fragment_status = true;  //it means current fragment in main
         save_fragment_status = false;
 
+
+
+        DictionaryAPI dictionaryAPI= RetrofitInstance.getRetrofitInstance().create(DictionaryAPI.class);
+//        Call<SentenseList> call=dictionaryAPI.getSentenseListData("beautiful");
+//        Log.d("RISHABH","URL IS "+call.request().url());
+//        Log.d("RISHABH","HEADER IS "+call.request().headers());
+//
+//        call.enqueue(new Callback<SentenseList>() {
+//            @Override
+//            public void onResponse(Call<SentenseList> call, Response<SentenseList> response) {
+//                if (response.isSuccessful()){
+//                    Log.d("RISHABH SUCC", response.body().toString());
+//
+//                    List<Result> results=response.body().getResults();
+//                    Result result=results.get(0);
+//                    List<LexicalEntry> lexicalEntries=result.getLexicalEntries();
+//                    LexicalEntry lexicalEntry=lexicalEntries.get(0);
+//                    List<Sentence> sentenceList=lexicalEntry.getSentences();
+//                    for(int i=0;i<=sentenceList.size()-1;i++)
+//                    {
+//                        Log.d("RISHABH DATA",sentenceList.get(i).getText());
+//                    }
+//
+//            }
+//                else
+//                    Log.d("RISHABH FAIL,","Response have a error"+response.message());
+//            }
+//
+//            @Override
+//            public void onFailure(Call<SentenseList> call, Throwable t) {
+//                Log.d("RISHABH","RESPONSE FAILURE "+t.toString());
+//            }
+//        });
+
+
+//        Call<SynonymsList> synonymsListCall=dictionaryAPI.getSynonymsListData("beautiful");
+//        synonymsListCall.enqueue(new Callback<SynonymsList>() {
+//            @Override
+//            public void onResponse(Call<SynonymsList> call, Response<SynonymsList> response) {
+//
+//                List<com.myapp.rishabhrawat.englishdictionary.Synonyms.Result> resultList=response.body().getResults();
+//                com.myapp.rishabhrawat.englishdictionary.Synonyms.Result result=resultList.get(0);
+//                List<com.myapp.rishabhrawat.englishdictionary.Synonyms.LexicalEntry> lexicalEntries=result.getLexicalEntries();
+//                com.myapp.rishabhrawat.englishdictionary.Synonyms.LexicalEntry lexicalEntry=lexicalEntries.get(0);
+//                List<Entry> entryList=lexicalEntry.getEntries();
+//                Entry entry=entryList.get(0);
+//                List<Sense> senseList=entry.getSenses();
+//                Sense sense=senseList.get(0);
+//                List<com.myapp.rishabhrawat.englishdictionary.Synonyms.Synonym> synonymList=sense.getSynonyms();
+//                for(int i=0;i<=synonymList.size()-1;i++)
+//                {
+//                    System.out.println(synonymList.get(i).getText());
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<SynonymsList> call, Throwable t) {
+//
+//            }
+//        });
+
+
+        //        Call<SynonymsList> synonymsListCall=dictionaryAPI.getSynonymsListData("beautiful");
+//        synonymsListCall.enqueue(new Callback<SynonymsList>() {
+//            @Override
+//            public void onResponse(Call<SynonymsList> call, Response<SynonymsList> response) {
+//
+//                List<com.myapp.rishabhrawat.englishdictionary.Synonyms.Result> resultList=response.body().getResults();
+//                com.myapp.rishabhrawat.englishdictionary.Synonyms.Result result=resultList.get(0);
+//                List<com.myapp.rishabhrawat.englishdictionary.Synonyms.LexicalEntry> lexicalEntries=result.getLexicalEntries();
+//                com.myapp.rishabhrawat.englishdictionary.Synonyms.LexicalEntry lexicalEntry=lexicalEntries.get(0);
+//                List<Entry> entryList=lexicalEntry.getEntries();
+//                Entry entry=entryList.get(0);
+//                List<Sense> senseList=entry.getSenses();
+//                Sense sense=senseList.get(0);
+//                List<com.myapp.rishabhrawat.englishdictionary.Synonyms.Synonym> synonymList=sense.getSynonyms();
+//                for(int i=0;i<=synonymList.size()-1;i++)
+//                {
+//                    System.out.println(synonymList.get(i).getText());
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<SynonymsList> call, Throwable t) {
+//
+//            }
+//        });
     }
 
     @Override

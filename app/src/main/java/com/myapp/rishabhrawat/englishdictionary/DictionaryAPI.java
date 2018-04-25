@@ -18,7 +18,7 @@ public interface DictionaryAPI {
             "app_id: ab2feedb",
             "app_key: dadab1f380083acd49fd6597fcae29cd"
     })
-    @GET("/entries/en/{word_id}")
+    @GET("entries/en/{word_id}")
     Call<SearchList> getSearchListData(@Path("word_id") String word_id);
 
     @Headers({
@@ -26,7 +26,7 @@ public interface DictionaryAPI {
             "app_id: ab2feedb",
             "app_key: dadab1f380083acd49fd6597fcae29cd"
     })
-    @GET("/entries/en/{word_id}/sentences")
+    @GET("entries/en/{word_id}/sentences")
     Call<SentenseList> getSentenseListData(@Path("word_id") String word_id);
 
     @Headers({
@@ -34,7 +34,7 @@ public interface DictionaryAPI {
             "app_id: ab2feedb",
             "app_key: dadab1f380083acd49fd6597fcae29cd"
     })
-    @GET("/entries/en/{word_id}/antonyms")
+    @GET("entries/en/{word_id}/antonyms")
     Call<AntonymsList> getAntonymsListData(@Path("word_id") String word_id);
 
     @Headers({
@@ -42,7 +42,7 @@ public interface DictionaryAPI {
             "app_id: ab2feedb",
             "app_key: dadab1f380083acd49fd6597fcae29cd"
     })
-    @GET("/entries/en/{word_id}/synonyms")
+    @GET("entries/en/{word_id}/synonyms")
     Call<SynonymsList> getSynonymsListData(@Path("word_id") String word_id);
 
     @Headers({
@@ -50,7 +50,7 @@ public interface DictionaryAPI {
             "app_id: ab2feedb",
             "app_key: dadab1f380083acd49fd6597fcae29cd"
     })
-    @GET("/entries/en/{word_id}")
+    @GET("entries/en/{word_id}")
     Call<EntriesList> getEntryListData(@Path("word_id") String word_id);
 
 }
