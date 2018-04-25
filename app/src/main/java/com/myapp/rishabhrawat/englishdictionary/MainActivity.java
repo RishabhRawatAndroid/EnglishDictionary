@@ -19,6 +19,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.google.gson.Gson;
+import com.myapp.rishabhrawat.englishdictionary.Antonyms.AntonymsList;
 import com.myapp.rishabhrawat.englishdictionary.Antonyms.Synonym;
 import com.myapp.rishabhrawat.englishdictionary.FragmentPack.MainFragment;
 import com.myapp.rishabhrawat.englishdictionary.FragmentPack.SaveWordFragment;
@@ -139,31 +140,33 @@ public class MainActivity extends AppCompatActivity
 //        });
 
 
-        //        Call<SynonymsList> synonymsListCall=dictionaryAPI.getSynonymsListData("beautiful");
-//        synonymsListCall.enqueue(new Callback<SynonymsList>() {
+//                Call<AntonymsList> synonymsListCall=dictionaryAPI.getAntonymsListData("angry");
+//              synonymsListCall.enqueue(new Callback<AntonymsList>() {
 //            @Override
-//            public void onResponse(Call<SynonymsList> call, Response<SynonymsList> response) {
+//            public void onResponse(Call<AntonymsList> call, Response<AntonymsList> response) {
 //
-//                List<com.myapp.rishabhrawat.englishdictionary.Synonyms.Result> resultList=response.body().getResults();
-//                com.myapp.rishabhrawat.englishdictionary.Synonyms.Result result=resultList.get(0);
-//                List<com.myapp.rishabhrawat.englishdictionary.Synonyms.LexicalEntry> lexicalEntries=result.getLexicalEntries();
-//                com.myapp.rishabhrawat.englishdictionary.Synonyms.LexicalEntry lexicalEntry=lexicalEntries.get(0);
-//                List<Entry> entryList=lexicalEntry.getEntries();
-//                Entry entry=entryList.get(0);
-//                List<Sense> senseList=entry.getSenses();
-//                Sense sense=senseList.get(0);
-//                List<com.myapp.rishabhrawat.englishdictionary.Synonyms.Synonym> synonymList=sense.getSynonyms();
-//                for(int i=0;i<=synonymList.size()-1;i++)
+//                List<com.myapp.rishabhrawat.englishdictionary.Antonyms.Result> resultList=response.body().getResults();
+//                com.myapp.rishabhrawat.englishdictionary.Antonyms.Result result=resultList.get(0);
+//                List<com.myapp.rishabhrawat.englishdictionary.Antonyms.LexicalEntry> lexicalEntries=result.getLexicalEntries();
+//                com.myapp.rishabhrawat.englishdictionary.Antonyms.LexicalEntry lexicalEntry=lexicalEntries.get(0);
+//                List<com.myapp.rishabhrawat.englishdictionary.Antonyms.Entry> entryList=lexicalEntry.getEntries();
+//                com.myapp.rishabhrawat.englishdictionary.Antonyms.Entry entry=entryList.get(0);
+//                List<com.myapp.rishabhrawat.englishdictionary.Antonyms.Sense> senseList=entry.getSenses();
+//                com.myapp.rishabhrawat.englishdictionary.Antonyms.Sense sense=senseList.get(0);
+//                List<com.myapp.rishabhrawat.englishdictionary.Antonyms.Antonym> antonymsList=sense.getAntonyms();
+//                for(int i=0;i<=antonymsList.size()-1;i++)
 //                {
-//                    System.out.println(synonymList.get(i).getText());
+//                    System.out.println(antonymsList.get(i).getText());
 //                }
 //            }
 //
 //            @Override
-//            public void onFailure(Call<SynonymsList> call, Throwable t) {
+//            public void onFailure(Call<AntonymsList> call, Throwable t) {
 //
 //            }
 //        });
+
+        
     }
 
     @Override
