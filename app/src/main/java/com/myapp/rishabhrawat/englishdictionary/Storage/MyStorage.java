@@ -3,122 +3,93 @@ package com.myapp.rishabhrawat.englishdictionary.Storage;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.myapp.rishabhrawat.englishdictionary.Antonyms.Antonym;
+import com.myapp.rishabhrawat.englishdictionary.DictionaryEntries.GrammaticalFeature;
+import com.myapp.rishabhrawat.englishdictionary.DictionaryEntries.LexicalEntry;
+import com.myapp.rishabhrawat.englishdictionary.DictionaryEntries.Pronunciation;
+import com.myapp.rishabhrawat.englishdictionary.DictionaryEntries.Pronunciation__;
+import com.myapp.rishabhrawat.englishdictionary.DictionaryEntries.Sense;
+import com.myapp.rishabhrawat.englishdictionary.Search.Result;
+import com.myapp.rishabhrawat.englishdictionary.Sentense.Sentence;
+import com.myapp.rishabhrawat.englishdictionary.Synonyms.Synonym;
+
 import java.util.List;
 
 public class MyStorage {
 
-    SharedPreferences preferences;
-    SharedPreferences.Editor editor;
-    Context context;
+    List<Sentence> sentenselist;
 
-    List<String> sentenselist;
+    List<Synonym> synonymlist;
+    List<Antonym> antonymlist;
 
-    List<String> synonymlist;
-    List<String> antonymlist;
+    List<com.myapp.rishabhrawat.englishdictionary.Search.Result> searchlist;
 
-    List<String> searchlist;
+    List<GrammaticalFeature> grammer;
+    List<Sense> definition;
+    List<LexicalEntry> lexicalcategory;
+    List<Pronunciation__> pronunciations;
 
-    List<String> grammertype;
-    List<String> grammertext;
-    List<String> grammerdefination;
-    List<String> grammerlexical;
-    String audiofile;
-    List<String> phenoticnotation;
-    List<String> phenoticSpelling;
-
-
-    MyStorage(Context context)
-    {
-        this.context=context;
-        preferences=context.getSharedPreferences("myfile",0);
-        editor=preferences.edit();
-    }
-
-    public List<String> getSentenselist() {
+    public List<Sentence> getSentenselist() {
         return sentenselist;
     }
 
-    public void setSentenselist(List<String> sentenselist) {
+    public void setSentenselist(List<Sentence> sentenselist) {
         this.sentenselist = sentenselist;
     }
 
-    public List<String> getSynonymlist() {
+    public List<Synonym> getSynonymlist() {
         return synonymlist;
     }
 
-    public void setSynonymlist(List<String> synonymlist) {
+    public void setSynonymlist(List<Synonym> synonymlist) {
         this.synonymlist = synonymlist;
     }
 
-    public List<String> getAntonymlist() {
+    public List<Antonym> getAntonymlist() {
         return antonymlist;
     }
 
-    public void setAntonymlist(List<String> antonymlist) {
+    public void setAntonymlist(List<Antonym> antonymlist) {
         this.antonymlist = antonymlist;
     }
 
-    public List<String> getSearchlist() {
+    public List<Result> getSearchlist() {
         return searchlist;
     }
 
-    public void setSearchlist(List<String> searchlist) {
+    public void setSearchlist(List<Result> searchlist) {
         this.searchlist = searchlist;
     }
 
-    public List<String> getGrammertype() {
-        return grammertype;
+    public List<GrammaticalFeature> getGrammer() {
+        return grammer;
     }
 
-    public void setGrammertype(List<String> grammertype) {
-        this.grammertype = grammertype;
+    public void setGrammer(List<GrammaticalFeature> grammer) {
+        this.grammer = grammer;
     }
 
-    public List<String> getGrammertext() {
-        return grammertext;
+    public List<Sense> getDefinition() {
+        return definition;
     }
 
-    public void setGrammertext(List<String> grammertext) {
-        this.grammertext = grammertext;
+    public void setDefinition(List<Sense> definition) {
+        this.definition = definition;
     }
 
-    public List<String> getGrammerdefination() {
-        return grammerdefination;
+    public List<LexicalEntry> getLexicalcategory() {
+        return lexicalcategory;
     }
 
-    public void setGrammerdefination(List<String> grammerdefination) {
-        this.grammerdefination = grammerdefination;
+    public void setLexicalcategory(List<LexicalEntry> lexicalcategory) {
+        this.lexicalcategory = lexicalcategory;
     }
 
-    public List<String> getGrammerlexical() {
-        return grammerlexical;
+    public List<Pronunciation__> getPronunciations() {
+        return pronunciations;
     }
 
-    public void setGrammerlexical(List<String> grammerlexical) {
-        this.grammerlexical = grammerlexical;
-    }
-
-    public String getAudiofile() {
-        return audiofile;
-    }
-
-    public void setAudiofile(String audiofile) {
-        this.audiofile = audiofile;
-    }
-
-    public List<String> getPhenoticnotation() {
-        return phenoticnotation;
-    }
-
-    public void setPhenoticnotation(List<String> phenoticnotation) {
-        this.phenoticnotation = phenoticnotation;
-    }
-
-    public List<String> getPhenoticSpelling() {
-        return phenoticSpelling;
-    }
-
-    public void setPhenoticSpelling(List<String> phenoticSpelling) {
-        this.phenoticSpelling = phenoticSpelling;
+    public void setPronunciations(List<Pronunciation__> pronunciations) {
+        this.pronunciations = pronunciations;
     }
 }

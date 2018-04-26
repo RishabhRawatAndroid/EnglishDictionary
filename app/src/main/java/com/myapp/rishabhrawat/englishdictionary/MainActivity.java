@@ -146,7 +146,7 @@ public class MainActivity extends AppCompatActivity
 //        });
 //
 //
-//                Call<AntonymsList> synonymsListCall=dictionaryAPI.getAntonymsListData("angry");
+//                Call<AntonymsList> antonymsListCall=dictionaryAPI.getAntonymsListData("angry");
 //              synonymsListCall.enqueue(new Callback<AntonymsList>() {
 //            @Override
 //            public void onResponse(Call<AntonymsList> call, Response<AntonymsList> response) {
