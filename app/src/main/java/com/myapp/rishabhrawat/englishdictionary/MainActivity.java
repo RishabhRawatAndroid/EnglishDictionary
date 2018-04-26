@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity
 
 
 
-        DictionaryAPI dictionaryAPI= RetrofitInstance.getRetrofitInstance().create(DictionaryAPI.class);
+//        DictionaryAPI dictionaryAPI= RetrofitInstance.getRetrofitInstance().create(DictionaryAPI.class);
 //        Call<SentenseList> call=dictionaryAPI.getSentenseListData("beautiful");
 //        Log.d("RISHABH","URL IS "+call.request().url());
 //        Log.d("RISHABH","HEADER IS "+call.request().headers());
@@ -117,8 +117,8 @@ public class MainActivity extends AppCompatActivity
 //                Log.d("RISHABH","RESPONSE FAILURE "+t.toString());
 //            }
 //        });
-
-
+//
+//
 //        Call<SynonymsList> synonymsListCall=dictionaryAPI.getSynonymsListData("beautiful");
 //        synonymsListCall.enqueue(new Callback<SynonymsList>() {
 //            @Override
@@ -144,8 +144,8 @@ public class MainActivity extends AppCompatActivity
 //
 //            }
 //        });
-
-
+//
+//
 //                Call<AntonymsList> synonymsListCall=dictionaryAPI.getAntonymsListData("angry");
 //              synonymsListCall.enqueue(new Callback<AntonymsList>() {
 //            @Override
@@ -171,8 +171,8 @@ public class MainActivity extends AppCompatActivity
 //
 //            }
 //        });
-
-
+//
+//
 //        Call<SearchList> searchListCall=dictionaryAPI.getSearchListData("beautiful");
 //        Log.d("RISHABH",searchListCall.request().url().toString());
 //        searchListCall.enqueue(new Callback<SearchList>() {
@@ -199,79 +199,79 @@ public class MainActivity extends AppCompatActivity
 //
 //            }
 //        });
-
-
-        final Call<EntriesList> entriesListCall=dictionaryAPI.getEntryListData("Agree");
-        entriesListCall.enqueue(new Callback<EntriesList>() {
-            @Override
-            public void onResponse(Call<EntriesList> call, Response<EntriesList> response) {
-                if(response.isSuccessful())
-                {
-                    List<com.myapp.rishabhrawat.englishdictionary.DictionaryEntries.Result> resultList=response.body().getResults();
-                    com.myapp.rishabhrawat.englishdictionary.DictionaryEntries.Result result=resultList.get(0);
-
-                    List<com.myapp.rishabhrawat.englishdictionary.DictionaryEntries.LexicalEntry> lexicalEntries=result.getLexicalEntries();
-                    com.myapp.rishabhrawat.englishdictionary.DictionaryEntries.LexicalEntry lexicalEntry=lexicalEntries.get(0);
-
-                    List<com.myapp.rishabhrawat.englishdictionary.DictionaryEntries.Entry> entries=lexicalEntry.getEntries();
-                    com.myapp.rishabhrawat.englishdictionary.DictionaryEntries.Entry entry=entries.get(0);
-
-                    List<GrammaticalFeature> grammaticalFeatureList=entry.getGrammaticalFeatures();
-                    for(int i=0;i<=grammaticalFeatureList.size()-1;i++)
-                    {
-                        System.out.println(grammaticalFeatureList.get(i).getText()+" "+grammaticalFeatureList.get(i).getType());
-                    }
-
-                    List<com.myapp.rishabhrawat.englishdictionary.DictionaryEntries.Sense> senseList=entry.getSenses();
-                    for(int i=0;i<=senseList.size()-1;i++)
-                    {
-                        System.out.println(senseList.get(i).getDefinitions());
-                    }
-
-                    for(int i=0;i<=lexicalEntries.size()-1;i++)
-                    {
-                        System.out.println(lexicalEntries.get(i).getLexicalCategory());
-                    }
-                    String filepath=null;
-
-                    List<Pronunciation__> pronunciation__list=lexicalEntries.get(0).getPronunciations();
-                    for(int i=0;i<=pronunciation__list.size()-1;i++)
-                    {
-                        System.out.println(pronunciation__list.get(i).getAudioFile()+" "+pronunciation__list.get(i).getPhoneticNotation()+" "+pronunciation__list.get(i).getPhoneticSpelling());
-
-                        if(filepath==null)
-                          filepath=pronunciation__list.get(i).getAudioFile();
-
-                    }
-
-                    MediaPlayer mp = new MediaPlayer();
-                    try {
-                        mp.setDataSource(filepath);
-                        Thread.sleep(1000);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    try {
-                        mp.prepare();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    mp.start();
-                }
-                else
-                {
-
-                    Log.d("RISHABH","Response has an error");
-                }
-            }
-
-            @Override
-            public void onFailure(Call<EntriesList> call, Throwable t) {
-
-            }
-        });
+//
+//
+//        final Call<EntriesList> entriesListCall=dictionaryAPI.getEntryListData("Agree");
+//        entriesListCall.enqueue(new Callback<EntriesList>() {
+//            @Override
+//            public void onResponse(Call<EntriesList> call, Response<EntriesList> response) {
+//                if(response.isSuccessful())
+//                {
+//                    List<com.myapp.rishabhrawat.englishdictionary.DictionaryEntries.Result> resultList=response.body().getResults();
+//                    com.myapp.rishabhrawat.englishdictionary.DictionaryEntries.Result result=resultList.get(0);
+//
+//                    List<com.myapp.rishabhrawat.englishdictionary.DictionaryEntries.LexicalEntry> lexicalEntries=result.getLexicalEntries();
+//                    com.myapp.rishabhrawat.englishdictionary.DictionaryEntries.LexicalEntry lexicalEntry=lexicalEntries.get(0);
+//
+//                    List<com.myapp.rishabhrawat.englishdictionary.DictionaryEntries.Entry> entries=lexicalEntry.getEntries();
+//                    com.myapp.rishabhrawat.englishdictionary.DictionaryEntries.Entry entry=entries.get(0);
+//
+//                    List<GrammaticalFeature> grammaticalFeatureList=entry.getGrammaticalFeatures();
+//                    for(int i=0;i<=grammaticalFeatureList.size()-1;i++)
+//                    {
+//                        System.out.println(grammaticalFeatureList.get(i).getText()+" "+grammaticalFeatureList.get(i).getType());
+//                    }
+//
+//                    List<com.myapp.rishabhrawat.englishdictionary.DictionaryEntries.Sense> senseList=entry.getSenses();
+//                    for(int i=0;i<=senseList.size()-1;i++)
+//                    {
+//                        System.out.println(senseList.get(i).getDefinitions());
+//                    }
+//
+//                    for(int i=0;i<=lexicalEntries.size()-1;i++)
+//                    {
+//                        System.out.println(lexicalEntries.get(i).getLexicalCategory());
+//                    }
+//                    String filepath=null;
+//
+//                    List<Pronunciation__> pronunciation__list=lexicalEntries.get(0).getPronunciations();
+//                    for(int i=0;i<=pronunciation__list.size()-1;i++)
+//                    {
+//                        System.out.println(pronunciation__list.get(i).getAudioFile()+" "+pronunciation__list.get(i).getPhoneticNotation()+" "+pronunciation__list.get(i).getPhoneticSpelling());
+//
+//                        if(filepath==null)
+//                          filepath=pronunciation__list.get(i).getAudioFile();
+//
+//                    }
+//
+//                    MediaPlayer mp = new MediaPlayer();
+//                    try {
+//                        mp.setDataSource(filepath);
+//                        Thread.sleep(1000);
+//                    } catch (IOException e) {
+//                        e.printStackTrace();
+//                    } catch (InterruptedException e) {
+//                        e.printStackTrace();
+//                    }
+//                    try {
+//                        mp.prepare();
+//                    } catch (IOException e) {
+//                        e.printStackTrace();
+//                    }
+//                    mp.start();
+//                }
+//                else
+//                {
+//
+//                    Log.d("RISHABH","Response has an error");
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<EntriesList> call, Throwable t) {
+//
+//            }
+//        });
 
 
 
